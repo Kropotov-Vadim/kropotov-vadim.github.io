@@ -4,8 +4,8 @@ var prevSlide = document.getElementsByClassName("header__slide-prev")[0],
     id = 1;
 
 slide[0].style.display = "block";
-slide[1].style.backgroundImage = "url(../img/header/bg-slide-2.jpg)";
-slide[2].style.backgroundImage = "url(../img/header/bg-slide-3.jpg)";
+slide[1].style.backgroundImage = "url(img/header/bg-slide-2.jpg)";
+slide[2].style.backgroundImage = "url(img/header/bg-slide-3.jpg)";
 
 function moveSlide(n) {
   showSlides(id += n);
