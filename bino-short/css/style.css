@@ -152,6 +152,7 @@ body {
   display: none;
   position: relative;
   background: #202020 url(../img/header/bg-slide-1.jpg) center no-repeat;
+  background-size: cover;
   padding-top: 250px;
   padding-bottom: 200px;
   text-align: center;
@@ -360,6 +361,7 @@ body {
   padding-top: 155px;
   padding-bottom: 69px;
   background: #202020 url(../img/service/service-img.png) center no-repeat;
+  background-size: cover;
 }
 
 .service__title {
