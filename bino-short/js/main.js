@@ -29,10 +29,10 @@ var linkNav = document.querySelectorAll('[href^="#"]'),
     V = 0.5;
 
 for (var i = 0; i < linkNav.length; i++) {
-  linkNav[i].addEventListener('click', function (e) {
+  linkNav[i].addEventListener("click", function (e) {
     e.preventDefault();
     var w = window.pageYOffset,
-        hash = this.href.replace(/[^#]*(.*)/, '$1');
+        hash = this.href.replace(/[^#]*(.*)/, "$1");
     t = document.querySelector(hash).getBoundingClientRect().top;
     start = null;
     requestAnimationFrame(step);
@@ -50,3 +50,11 @@ for (var i = 0; i < linkNav.length; i++) {
     }
   }, false);
 }
+
+var menuMobile = document.getElementById("menu__mobile"),
+    menu = document.getElementsByClassName("menu")[0];
+
+menuMobile.addEventListener("click", function(){
+  menuMobile.classList.toggle("menu__mobile-active");
+  menu.classList.toggle("menu-active");
+});
