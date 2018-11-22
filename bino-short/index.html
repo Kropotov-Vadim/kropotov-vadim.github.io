@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
   <link rel="stylesheet" href="css/bootstrap-grid.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="slick/slick-theme.css">
+  <link rel="stylesheet" href="slick/slick.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Bino-short</title>
 </head>
@@ -34,63 +36,65 @@
     </div>
   </div>
   <header id="home" class="header">
-    <div class="header__slide-prev" onclick="moveSlide(-1)"></div>
-    <div class="header__slide-next" onclick="moveSlide(1)"></div>
-    <div class="header__slide fade">
-      <div class="header__subtitle">Our Clients Are Our First Priority</div>
-      <h1 class="header__title">welcome to bino</h1>
-      <div class="separator">
-        <img class="separator-line" src="img/line.png" alt="">
-        <div class="separator-circle"></div>
-        <img class="separator-line" src="img/line.png" alt="">
+    <div class="header__slide-prev"></div>
+    <div class="header__slide-next"></div>
+    <div class="slider-wrapper">
+      <div class="header__slide">
+        <div class="header__subtitle">Our Clients Are Our First Priority</div>
+        <h1 class="header__title">welcome to bino</h1>
+        <div class="separator">
+          <img class="separator-line" src="img/line.png" alt="">
+          <div class="separator-circle"></div>
+          <img class="separator-line" src="img/line.png" alt="">
+        </div>
+        <div class="header__description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book.
+        </div>
+        <div class="header__btns">
+          <button class="btn">get started now</button>
+          <button class="btn btn-o">lern more</button>
+        </div>
       </div>
-      <div class="header__description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-        make a type specimen book.
+      <div class="header__slide">
+        <div class="header__subtitle">Our Clients Are Our First Priority</div>
+        <h1 class="header__title">welcome to bino</h1>
+        <div class="separator">
+          <img class="separator-line" src="img/line.png" alt="">
+          <div class="separator-circle"></div>
+          <img class="separator-line" src="img/line.png" alt="">
+        </div>
+        <div class="header__description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book.
+        </div>
+        <div class="header__btns">
+          <button class="btn">get started now</button>
+          <button class="btn btn-o">lern more</button>
+        </div>
       </div>
-      <div class="header__btns">
-        <button class="btn">get started now</button>
-        <button class="btn btn-o">lern more</button>
-      </div>
-    </div>
-    <div class="header__slide fade">
-      <div class="header__subtitle">Our Clients Are Our First Priority</div>
-      <h1 class="header__title">welcome to bino</h1>
-      <div class="separator">
-        <img class="separator-line" src="img/line.png" alt="">
-        <div class="separator-circle"></div>
-        <img class="separator-line" src="img/line.png" alt="">
-      </div>
-      <div class="header__description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-        make a type specimen book.
-      </div>
-      <div class="header__btns">
-        <button class="btn">get started now</button>
-        <button class="btn btn-o">lern more</button>
-      </div>
-    </div>
-    <div class="header__slide fade">
-      <div class="header__subtitle">Our Clients Are Our First Priority</div>
-      <h1 class="header__title">welcome to bino</h1>
-      <div class="separator">
-        <img class="separator-line" src="img/line.png" alt="">
-        <div class="separator-circle"></div>
-        <img class="separator-line" src="img/line.png" alt="">
-      </div>
-      <div class="header__description">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-        industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-        make a type specimen book.
-      </div>
-      <div class="header__btns">
-        <button class="btn">get started now</button>
-        <button class="btn btn-o">lern more</button>
+      <div class="header__slide">
+        <div class="header__subtitle">Our Clients Are Our First Priority</div>
+        <h1 class="header__title">welcome to bino</h1>
+        <div class="separator">
+          <img class="separator-line" src="img/line.png" alt="">
+          <div class="separator-circle"></div>
+          <img class="separator-line" src="img/line.png" alt="">
+        </div>
+        <div class="header__description">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+          industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book.
+        </div>
+        <div class="header__btns">
+          <button class="btn">get started now</button>
+          <button class="btn btn-o">lern more</button>
+        </div>
       </div>
     </div>
     <div class="header__arrow">
@@ -221,11 +225,11 @@
         </div>
         <div class="col-lg-7 col-12">
           <form id="form" action="#" class="contact__form">
-            <input type="text" class="form_input" required placeholder="Name">
-            <input type="email" class="form_input" required placeholder="Email">
-            <input type="text" class="form_input" required placeholder="Subject">
-            <textarea class="form_textarea" required placeholder="Message"></textarea>
-            <input type="submit" class="btn" value="send message">
+            <input type="text" class="form_input"  placeholder="Name">
+            <input type="email" class="form_input"  placeholder="Email">
+            <input type="text" class="form_input"  placeholder="Subject">
+            <textarea class="form_textarea"  placeholder="Message"></textarea>
+            <input type="submit" class="btn btn-form" value="send message">
           </form>
         </div>
       </div>
@@ -242,7 +246,7 @@
   <footer id="footer" class="footer">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 col-md-7 col-12">
+        <div class="col-lg-4 col-md-7 col-12">
           <div class="footer__icon">
             <a href="#">
               <i class="fa fa-facebook" aria-hidden="true"></i>
@@ -270,7 +274,7 @@
             </a>
           </div>
         </div>
-        <div class="col-lg-6 col-md-5 col-12">
+        <div class="col-lg-8 col-md-5 col-12">
           <div class="footer__author">Kazi Erfan © All Rights Reserved </div>
         </div>
       </div>
@@ -279,6 +283,8 @@
       <img src="img/go-top.png" alt="">
     </a>
   </footer>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="slick/slick.min.js"></script>
   <script src="js/main.js"></script>
 
 </body>
