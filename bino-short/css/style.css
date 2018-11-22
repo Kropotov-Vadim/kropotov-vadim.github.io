@@ -1027,11 +1027,11 @@ body {
   }
 
   .menu-active {
-    transform: translateX(60vw);
-    -webkit-transform: translateX(60vw);
-    -moz-transform: translateX(60vw);
-    -ms-transform: translateX(60vw);
-    -o-transform: translateX(60vw);
+    transform: translateX(61vw);
+    -webkit-transform: translateX(61vw);
+    -moz-transform: translateX(61vw);
+    -ms-transform: translateX(61vw);
+    -o-transform: translateX(61vw);
 }
 
   .header__slide {
