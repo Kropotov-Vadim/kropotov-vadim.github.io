@@ -18,11 +18,6 @@ img {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  -moz-transition: 0.2s;
-  -ms-transition: 0.2s;
-  -o-transition: 0.2s;
 }
 
 body {
@@ -43,14 +38,28 @@ body {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  display: inline-block;
-  margin-left: 13px;
-  margin-right: 13px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.separator-line,
-.separator-circle {
-  vertical-align: middle;
+.separator-circle::before,
+.separator-circle::after {
+  content: "";
+  display: block;
+  height: 1px;
+  min-width: 80px;
+  background-color: #d9dad6;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.separator-circle::after {
+  float: right;
+}
+
+.separator-circle::before {
+  float: left;
 }
 
 #menu__mobile {
@@ -351,7 +360,7 @@ body {
   transform: skew(0deg, -10deg);
 }
 
-.goToForm {
+.go-form {
   width: 64px;
   height: 64px;
   display: block;
@@ -371,7 +380,7 @@ body {
   -o-transform: translateY(25px);
 }
 
-.goToForm img {
+.go-form img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -397,6 +406,11 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
   border: 1px solid #999999;
 }
 
@@ -712,7 +726,7 @@ body {
   .header__arrow::after {
     height: 230%;
   }
-  .goToForm {
+  .go-form {
     bottom: -10px;
   }
 }
@@ -803,7 +817,7 @@ body {
     padding-bottom: 30px;
   }
 
-  .goToForm {
+  .go-form {
     bottom: 10px;
   }
 }
@@ -838,7 +852,7 @@ body {
     padding-left: 0;
   }
 
-  .goToForm {
+  .go-form {
     bottom: 22px;
   }
 
@@ -922,7 +936,7 @@ body {
     box-shadow: none;
     padding: 0;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
   .block {
@@ -996,11 +1010,11 @@ body {
     -moz-transform: translateX(100vw);
     -ms-transform: translateX(100vw);
     -o-transform: translateX(100vw);
-    transition: ease 1s;
-    -webkit-transition: ease 1s;
-    -moz-transition: ease 1s;
-    -ms-transition: ease 1s;
-    -o-transition: ease 1s;
+    transition: step-start 1s;
+    -webkit-transition: step-start 1s;
+    -moz-transition: step-start 1s;
+    -ms-transition: step-start 1s;
+    -o-transition: step-start 1s;
 }
 
   .logo {
@@ -1027,11 +1041,12 @@ body {
   }
 
   .menu-active {
-    transform: translateX(61vw);
-    -webkit-transform: translateX(61vw);
-    -moz-transform: translateX(61vw);
-    -ms-transform: translateX(61vw);
-    -o-transform: translateX(61vw);
+    transform: translateX(60vw);
+    -webkit-transform: translateX(60vw);
+    -moz-transform: translateX(60vw);
+    -ms-transform: translateX(60vw);
+    -o-transform: translateX(60vw);
+
 }
 
   .header__slide {
@@ -1044,7 +1059,7 @@ body {
   }
 
   .header__description {
-    margin-top: 0;
+    margin-top: 20px;
   }
 
   .btn {
@@ -1058,6 +1073,30 @@ body {
 
   .service {
     background-image: none;
+  }
+
+  .service__block {
+    margin-right: 0;
+  }
+
+  .service__circle {
+    position: relative;
+    right: 0;
+    display: block;
+    margin: 15px auto 0 auto;
+  }
+
+  .service__title {
+    text-align: center;
+    border: none;
+    margin-right: 0;
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .service__block-title,
+  .service__block-description {
+    text-align: center;
   }
 
   .contact__block-title {
@@ -1091,30 +1130,6 @@ body {
 }
 
 @media (max-width: 660px) {
-  .service__block {
-    margin-right: 0;
-  }
-
-  .service__circle {
-    position: relative;
-    right: 0;
-    display: block;
-    margin: 15px auto 0 auto;
-  }
-
-  .service__title {
-    text-align: center;
-    border: none;
-    margin-right: 0;
-    padding-right: 0;
-    margin-bottom: 30px;
-  }
-
-  .service__block-title,
-  .service__block-description {
-    text-align: center;
-  }
-
   .service__block-title {
     margin-bottom: 8px;
   }
@@ -1126,10 +1141,10 @@ body {
   }
 
   .header__description {
-    max-width: 80%;
+    max-width: 95%;
   }
 
-  .goToForm {
+  .go-form {
     bottom: 30px;
   }
 

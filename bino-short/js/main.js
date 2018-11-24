@@ -6,23 +6,23 @@ slide[1].style.backgroundImage = "url(img/header/bg-slide-2.jpg)";
 slide[2].style.backgroundImage = "url(img/header/bg-slide-3.jpg)";
 
 var linkNav = document.querySelectorAll('[href^="#"]'),
-  V = 0.5;
+  speed = 0.5;
 
 for (var i = 0; i < linkNav.length; i++) {
   linkNav[i].addEventListener("click", function (e) {
     e.preventDefault();
-    var w = window.pageYOffset,
+    var wind = window.pageYOffset,
       hash = this.href.replace(/[^#]*(.*)/, "$1");
-    t = document.querySelector(hash).getBoundingClientRect().top;
+    to = document.querySelector(hash).getBoundingClientRect().top;
     start = null;
     requestAnimationFrame(step);
 
     function step(time) {
       if (start === null) start = time;
       var progress = time - start,
-        r = (t < 0 ? Math.max(w - progress / V, w + t) : Math.min(w + progress / V, w + t));
-      window.scrollTo(0, r);
-      if (r != w + t) {
+        res = (to < 0 ? Math.max(wind - progress / speed, wind + to) : Math.min(wind + progress / speed, wind + to));
+      window.scrollTo(0, res);
+      if (res != wind + to) {
         requestAnimationFrame(step)
       } else {
         location.hash = hash;
