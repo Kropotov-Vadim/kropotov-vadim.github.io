@@ -1,10 +1,3 @@
-var slide = document.getElementsByClassName("header__slide"),
-  id = 1;
-
-slide[0].style.display = "block";
-slide[1].style.backgroundImage = "url(img/header/bg-slide-2.jpg)";
-slide[2].style.backgroundImage = "url(img/header/bg-slide-3.jpg)";
-
 var linkNav = document.querySelectorAll('[href^="#"]'),
   speed = 0.5;
 
@@ -52,55 +45,72 @@ var namei = document.getElementsByClassName("form_input")[0],
   mail = document.getElementsByClassName("form_input")[1],
   subj = document.getElementsByClassName("form_input")[2],
   tarea = document.getElementsByClassName("form_textarea")[0],
-  subm = document.getElementsByClassName("btn-form")[0];
+  subm = document.getElementsByClassName("btn-form")[0],
+  formThx= document.getElementsByClassName("form-thx")[0];
 
 mail.onblur = function () {
   var result = this.value.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
   if (!result) {
-    mail.style.borderBottomColor = "red";
+    mail.classList.remove("good");
+    mail.classList.add("error");
   } else {
-    mail.style.borderBottomColor = "green";
+    mail.classList.remove("error");
+    mail.classList.add("good");
   }
 }
 
 mail.onfocus = function () {
-  mail.style.borderBottomColor = "#999999";
+  mail.classList.remove("error");
+  mail.classList.remove("good");
+  mail.style.borderBottomColor = "#999";
 }
 
 namei.onblur = function () {
   if (namei.value == "") {
-    namei.style.borderBottomColor = "red";
+    namei.classList.remove("good");
+    namei.classList.add("error");
   } else {
-    namei.style.borderBottomColor = "green";
+    namei.classList.remove("error");
+    namei.classList.add("good");
   }
 }
 
 namei.onfocus = function () {
-  namei.style.borderBottomColor = "#999999";
+  namei.classList.remove("error");
+  namei.classList.remove("good");
+  namei.style.borderBottomColor = "#999";
 }
 
 subj.onblur = function () {
   if (subj.value == "") {
-    subj.style.borderBottomColor = "red";
+    subj.classList.remove("good");
+    subj.classList.add("error");
   } else {
-    subj.style.borderBottomColor = "green";
+    subj.classList.remove("error");
+    subj.classList.add("good");
   }
 }
 
 subj.onfocus = function () {
-  subj.style.borderBottomColor = "#999999";
+  subj.classList.remove("error");
+  subj.classList.remove("good");
+  subj.style.borderBottomColor = "#999";
 }
 
 tarea.onblur = function () {
   if (tarea.value == "") {
-    tarea.style.borderBottomColor = "red";
+    tarea.classList.remove("good");
+    tarea.classList.add("error");
   } else {
-    tarea.style.borderBottomColor = "green";
+    tarea.classList.remove("error");
+    tarea.classList.add("good");
   }
 }
 
 tarea.onfocus = function () {
-  tarea.style.borderBottomColor = "#999999";
+  tarea.classList.remove("error");
+  tarea.classList.remove("good");
+  tarea.style.borderBottomColor = "#999";
 }
 
 subm.addEventListener("click", function() {
@@ -108,11 +118,22 @@ subm.addEventListener("click", function() {
 
   if ( !result || namei.value == "" || tarea.value == "" || subj.value == "") {
     event.preventDefault();
-    mail.style.borderBottomColor = "red";
-    tarea.style.borderBottomColor = "red";
-    subj.style.borderBottomColor = "red";
-    namei.style.borderBottomColor = "red";
+    mail.classList.remove("good");
+    tarea.classList.remove("good");
+    subj.classList.remove("good");
+    namei.classList.remove("good");
+    mail.classList.add("error");
+    tarea.classList.add("error");
+    subj.classList.add("error");
+    namei.classList.add("error");
   } else {
-    alert("Отправленно");
+    event.preventDefault();
+    subm.style.display = "none";
+    mail.value = "";
+    tarea.value = "";
+    subj.value = "";
+    namei.value = "";
+    formThx.style.display = "block";
   }
 });
+
