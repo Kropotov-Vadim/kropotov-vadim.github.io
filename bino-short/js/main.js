@@ -1,21 +1,21 @@
 var linkNav = document.querySelectorAll('[href^="#"]'),
-  speed = 0.5;
+  speed = 0.3;
 
 for (var i = 0; i < linkNav.length; i++) {
   linkNav[i].addEventListener("click", function (e) {
     e.preventDefault();
     var wind = window.pageYOffset,
       hash = this.href.replace(/[^#]*(.*)/, "$1");
-    to = document.querySelector(hash).getBoundingClientRect().top;
+    toTop = document.querySelector(hash).getBoundingClientRect().top;
     start = null;
     requestAnimationFrame(step);
 
     function step(time) {
       if (start === null) start = time;
       var progress = time - start,
-        res = (to < 0 ? Math.max(wind - progress / speed, wind + to) : Math.min(wind + progress / speed, wind + to));
+        res = (toTop < 0 ? Math.max(wind - progress / speed, wind + toTop) : Math.min(wind + progress / speed, wind + toTop));
       window.scrollTo(0, res);
-      if (res != wind + to) {
+      if (res != wind + toTop) {
         requestAnimationFrame(step)
       } else {
         location.hash = hash;
