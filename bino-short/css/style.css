@@ -86,7 +86,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 28px;
+  margin-bottom: 35px;
 }
 
 #menu__mobile {
@@ -542,8 +542,8 @@ body {
 
 .history .btn {
   margin-left: 0;
-  -webkit-box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.25);
 }
 
 /* service */
@@ -777,6 +777,8 @@ body {
   -moz-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   -o-transform: translate(0, -50%);
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   z-index: 3;
 }
 
@@ -788,8 +790,6 @@ body {
   padding: 92px 61px 50px 61px;
   text-align: center;
   background-color: #fff;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
   outline: none;
 }
@@ -823,7 +823,7 @@ body {
 }
 
 .case__item_title {
-  margin-top: 64px;
+  margin-top: 75px;
   color: #6a6a6a;
   font-size: 18px;
   font-weight: 700;
@@ -1049,7 +1049,7 @@ body {
 }
 
 .price__block-bottom {
-  padding-top: 125px;
+  padding-top: 100px;
   background-color: #f4f5f9;
   padding-bottom: 50px;
 }
@@ -1556,6 +1556,18 @@ body {
 
 /* адаптив */
 
+@media (min-width: 1800px){
+  .blog__item_descr{
+    padding: 60px 45px;
+  }
+  .blog__item-title::after {
+    margin-top: 20px;
+    margin-bottom: 49px;
+  }
+  .blog__item-description {
+    margin-bottom: 50px;
+  }
+}
 @media (min-width: 1601px) {
   .header__arrow {
     bottom: 20px;
@@ -1565,7 +1577,7 @@ body {
   .header__arrow::after {
     height: 230%;
   }
-
+ 
   .js__go-form {
     bottom: -10px;
   }
@@ -1970,13 +1982,13 @@ body {
   }
 
   .contact {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   .contact__block,
   .contact__form {
-    margin-top: 35px;
+    margin-top: 45px;
   }
 
   .contact__block {
@@ -2150,6 +2162,10 @@ body {
 
   .history__title {
     font-size: 30px;
+  }
+
+  .integration__item img {
+    max-height: 48%;
   }
 
   .service {
