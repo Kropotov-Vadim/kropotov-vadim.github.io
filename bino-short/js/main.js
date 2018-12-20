@@ -1,17 +1,12 @@
-var linkNav = document.querySelectorAll('[href^="#"]'),
-  speed = 0.3,
-  nameInput = document.getElementsByClassName("form_input")[0],
-  email = document.getElementsByClassName("form_input")[1],
-  subject = document.getElementsByClassName("form_input")[2],
-  textAreaForm = document.getElementsByClassName("form_textarea")[0],
-  subm = document.getElementsByClassName("btn-form")[0],
-  formThx = document.getElementsByClassName("form-thx")[0],
+var menuMobile = document.getElementById("menu__mobile"),
+  menu = document.getElementsByClassName("menu")[0],
   error = "error",
   alright = "good",
-  menuMobile = document.getElementById("menu__mobile"),
-  menu = document.getElementsByClassName("menu")[0];
+  submitForm = document.getElementsByClassName("btn-form")[0];
 
 function goToAnchore() {
+  var linkNav = document.querySelectorAll('[href^="#"]'),
+    speed = 0.3;
   for (var i = 0; i < linkNav.length; i++) {
     linkNav[i].addEventListener("click", function (e) {
       e.preventDefault();
@@ -62,7 +57,46 @@ $('.case__slider').slick({
 });
 
 
-function setFocus() {
+function chekEmail(email) {
+  var result = email.value.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
+  if (!result)
+    return false;
+  return true;
+}
+
+function chekFormTextInput(formInput) {
+  if (formInput.value == "") 
+    return false;
+  return true;
+}
+
+function formValidation() {
+  var nameInput = document.getElementsByClassName("form_input")[0],
+    email = document.getElementsByClassName("form_input")[1],
+    subject = document.getElementsByClassName("form_input")[2],
+    textAreaForm = document.getElementsByClassName("form_textarea")[0],
+    formThanks = document.getElementsByClassName("form-thx")[0];
+  if(chekEmail(email) && chekFormTextInput(nameInput) && chekFormTextInput(subject) && chekFormTextInput(textAreaForm)){
+    event.preventDefault();
+    submitForm.style.display = "none";
+    email.value = "";
+    textAreaForm.value = "";
+    subject.value = "";
+    nameInput.value = "";
+    formThanks.style.display = "block";
+  }
+  else {
+    event.preventDefault();
+    email.classList.add(error);
+    textAreaForm.classList.add(error);
+    subject.classList.add(error);
+    nameInput.classList.add(error);
+  }
+}
+
+submitForm.addEventListener("click", formValidation);
+
+/* function setFocus() {
   this.classList.remove(error);
   this.classList.remove(alright);
 }
@@ -104,7 +138,7 @@ textAreaForm.addEventListener("blur", setBlur);
 
 textAreaForm.addEventListener("focus", setFocus);
 
-subm.addEventListener("click", function () {
+submitForm.addEventListener("click", function () {
   var result = email.value.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
 
   if (!result || nameInput.value == "" || textAreaForm.value == "" || subject.value == "") {
@@ -119,11 +153,12 @@ subm.addEventListener("click", function () {
     nameInput.classList.add(error);
   } else {
     event.preventDefault();
-    subm.style.display = "none";
+    submitForm.style.display = "none";
     email.value = "";
     textAreaForm.value = "";
     subject.value = "";
     nameInput.value = "";
-    formThx.style.display = "block";
+    formThanks.style.display = "block";
   }
-});
+});*/
+
