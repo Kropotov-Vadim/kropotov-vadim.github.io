@@ -2,26 +2,48 @@ var menuMobile = document.getElementById("menu__mobile"),
   menu = document.getElementsByClassName("menu")[0],
   error = "error",
   alright = "good",
-  submitForm = document.getElementsByClassName("btn-form")[0];
+  submitForm = document.getElementsByClassName("btn-form")[0],
+  nameInput = document.getElementsByClassName("form_input")[0],
+  email = document.getElementsByClassName("form_input")[1],
+  subject = document.getElementsByClassName("form_input")[2],
+  textAreaForm = document.getElementsByClassName("form_textarea")[0],
+  formThanks = document.getElementsByClassName("form-thx")[0];
+
+initAllFunction();
+
+function initAllFunction() {
+  goToAnchore();
+  sliderBino();
+  addEventBino(menuMobile, "click", menuBino);
+  addEventBino(email, "blur", setBlurEmail);
+  addEventBino(email, "focus", setFocus);
+  addEventBino(nameInput, "blur", setBlur);
+  addEventBino(nameInput, "focus", setFocus);
+  addEventBino(subject, "blur", setBlur);
+  addEventBino(subject, "focus", setFocus);
+  addEventBino(textAreaForm, "blur", setBlur);
+  addEventBino(textAreaForm, "focus", setFocus);
+  addEventBino(submitForm, "click", chekAllForm);
+}
 
 function goToAnchore() {
   var linkNav = document.querySelectorAll('[href^="#"]'),
     speed = 0.3;
   for (var i = 0; i < linkNav.length; i++) {
-    linkNav[i].addEventListener("click", function (e) {
-      e.preventDefault();
+    linkNav[i].addEventListener("click", function (event) {
+      event.preventDefault();
       var wind = window.pageYOffset,
         hash = this.href.replace(/[^#]*(.*)/, "$1");
-      toTop = document.querySelector(hash).getBoundingClientRect().top;
+      screnScroll = document.querySelector(hash).getBoundingClientRect().top;
       start = null;
       requestAnimationFrame(step);
 
       function step(time) {
         if (start === null) start = time;
         var progress = time - start,
-          res = (toTop < 0 ? Math.max(wind - progress / speed, wind + toTop) : Math.min(wind + progress / speed, wind + toTop));
-        window.scrollTo(0, res);
-        if (res != wind + toTop) {
+          result = (screnScroll < 0 ? Math.max(wind - progress / speed, wind + screnScroll) : Math.min(wind + progress / speed, wind + screnScroll));
+        window.scrollTo(0, result);
+        if (result != wind + screnScroll) {
           requestAnimationFrame(step)
         } else {
           location.hash = hash;
@@ -31,72 +53,39 @@ function goToAnchore() {
   }
 }
 
-goToAnchore();
 
-menuMobile.addEventListener("click", function () {
+function addEventBino(tag, events, funcBino) {
+  tag.addEventListener(events, funcBino);
+}
+
+function menuBino() {
   menuMobile.classList.toggle("menu__mobile-active");
   menu.classList.toggle("menu-active");
-});
-
-$('.slider-wrapper').slick({
-  infinite: false,
-  arrows: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  prevArrow: '<div class="header__slide-prev"></div> ',
-  nextArrow: '<div class="header__slide-next"></div> '
-});
-
-$('.case__slider').slick({
-  dots: true,
-  arrows: false,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-});
-
-
-function chekEmail(email) {
-  var result = email.value.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
-  if (!result)
-    return false;
-  return true;
 }
 
-function chekFormTextInput(formInput) {
-  if (formInput.value == "") 
-    return false;
-  return true;
+
+function sliderBino() {
+  $('.slider-wrapper').slick({
+    infinite: false,
+    arrows: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    prevArrow: '<div class="header__slide-prev"></div> ',
+    nextArrow: '<div class="header__slide-next"></div> '
+  });
+  
+  $('.case__slider').slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
 }
 
-function formValidation() {
-  var nameInput = document.getElementsByClassName("form_input")[0],
-    email = document.getElementsByClassName("form_input")[1],
-    subject = document.getElementsByClassName("form_input")[2],
-    textAreaForm = document.getElementsByClassName("form_textarea")[0],
-    formThanks = document.getElementsByClassName("form-thx")[0];
-  if(chekEmail(email) && chekFormTextInput(nameInput) && chekFormTextInput(subject) && chekFormTextInput(textAreaForm)){
-    event.preventDefault();
-    submitForm.style.display = "none";
-    email.value = "";
-    textAreaForm.value = "";
-    subject.value = "";
-    nameInput.value = "";
-    formThanks.style.display = "block";
-  }
-  else {
-    event.preventDefault();
-    email.classList.add(error);
-    textAreaForm.classList.add(error);
-    subject.classList.add(error);
-    nameInput.classList.add(error);
-  }
-}
 
-submitForm.addEventListener("click", formValidation);
-
-/* function setFocus() {
+function setFocus() {
   this.classList.remove(error);
   this.classList.remove(alright);
 }
@@ -122,23 +111,7 @@ function setBlurEmail() {
   }
 }
 
-email.addEventListener("blur", setBlurEmail);
-
-email.addEventListener("focus", setFocus);
-
-nameInput.addEventListener("blur", setBlur);
-
-nameInput.addEventListener("focus", setFocus);
-
-subject.addEventListener("blur", setBlur);
-
-subject.addEventListener("focus", setFocus);
-
-textAreaForm.addEventListener("blur", setBlur);
-
-textAreaForm.addEventListener("focus", setFocus);
-
-submitForm.addEventListener("click", function () {
+function chekAllForm() {
   var result = email.value.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i);
 
   if (!result || nameInput.value == "" || textAreaForm.value == "" || subject.value == "") {
@@ -160,5 +133,5 @@ submitForm.addEventListener("click", function () {
     nameInput.value = "";
     formThanks.style.display = "block";
   }
-});*/
+};
 
