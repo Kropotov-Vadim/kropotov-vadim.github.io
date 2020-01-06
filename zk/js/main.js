@@ -37,3 +37,60 @@ $('.owl-carousel.dinamic__slider').owlCarousel({
     }
   }
 });
+
+const data = [
+  {
+    id: 1,
+    item: {
+      salePrice: '1 950 00 руб.',
+      nosalePrice: '2 100 000 руб.',
+      sale: '150 000 руб.'
+    }
+  },
+  {
+    id: 2,
+    item: {
+      salePrice: '1 850 00 руб.',
+      nosalePrice: '1 900 000 руб.',
+      sale: '50 000 руб.'
+    }
+  },
+  {
+    id: 3,
+    item: {
+      salePrice: '2 050 00 руб.',
+      nosalePrice: '2 250 000 руб.',
+      sale: '200 000 руб.'
+    }
+  },
+  {
+    id: 4,
+    item: {
+      salePrice: '1 900 00 руб.',
+      nosalePrice: '2 050 000 руб.',
+      sale: '150 000 руб.'
+    }
+  },
+  {
+    id: 5,
+    item: {
+      salePrice: '2 150 00 руб.',
+      nosalePrice: '2 400 000 руб.',
+      sale: '250 000 руб.'
+    }
+  }
+];
+
+let active = 1
+
+
+$('.appart__price_block').on('click', function() {
+  let itemData = data[$(this).attr('tabs')-1]
+  $('.appart__price_block')[active-1].classList.remove('active')
+  active = $(this).attr('tabs');
+  $('.appart__price_block')[active-1].classList.add('active')
+  $('.appart__scheme_price').text(itemData.item.salePrice)
+  $('.appart__scheme_price-nosale').text(itemData.item.nosalePrice)
+  $('.appart__scheme_sale').text('Скидка: '+itemData.item.sale)
+});
+
