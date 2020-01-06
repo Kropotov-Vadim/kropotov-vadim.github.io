@@ -1,0 +1,73 @@
+.header
+  padding: 8px 0 
+  background-color: #0d1e28
+
+.call 
+  box-shadow: 2px 3px 5px rgba(0, 3, 1, 0.1)
+  border-radius: 5px
+  background-color: #6cae2f  
+  padding: 11px 27px 
+  font-size: 14px
+  font-weight: 700
+  outline: none 
+  border: none 
+  cursor: pointer 
+  color: #fff 
+  &.light
+    background-color: #7fc242
+    transition: .3s
+    &:hover 
+      background-color: #6cae2f  
+
+
+.menu 
+  ul 
+    li 
+      list-style: none 
+      display: block
+      margin-right: 28px
+      a 
+        font-size: 11px
+        color: #fff 
+        text-decoration: none
+        padding-bottom: 3px
+        border-bottom: 1px solid #fff
+        font-weight: 500
+  &__mobile
+    display: none
+    width: 25px
+    height: 14px
+    position: relative
+    cursor: pointer
+    & span 
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      width: 100%
+      height: 2px
+      background-color: #fff
+      transition: .3s
+      border-radius: 2px
+      &::after, &::before 
+        content: ''
+        display: block
+        width: 100%
+        height: 2px
+        background-color: #fff
+        position: absolute 
+        transition: .3s
+        border-radius: 2px
+      &::after 
+        transform: translateY(6px)
+      &::before
+        transform: translateY(-6px)
+    &.active
+      & span 
+        height: 0 !important
+        &::after
+          transform: rotate(-45deg) !important
+        &::before
+          transform: rotate(45deg) !important
+            
+
+
