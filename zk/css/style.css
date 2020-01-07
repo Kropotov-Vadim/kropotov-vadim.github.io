@@ -762,10 +762,13 @@
 
 .finish__block_img {
   width: 100%;
+  height: 200px;
+  overflow: hidden;
 }
 
 .finish__block_img img {
   width: 100%;
+  height: 200px;
 }
 
 .finish__block_descr {
