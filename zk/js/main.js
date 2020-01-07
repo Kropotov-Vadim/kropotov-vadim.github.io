@@ -85,9 +85,9 @@ let active = 1
 
 
 $('.appart__price_block').on('click', function() {
-  let itemData = data[$(this).attr('tabs')-1]
+  let itemData = data[$(this).attr('data-tabs')-1]
   $('.appart__price_block')[active-1].classList.remove('active')
-  active = $(this).attr('tabs');
+  active = $(this).attr('data-tabs');
   $('.appart__price_block')[active-1].classList.add('active')
   $('.appart__scheme_price').text(itemData.item.salePrice)
   $('.appart__scheme_price-nosale').text(itemData.item.nosalePrice)

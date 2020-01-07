@@ -582,6 +582,7 @@
   width: 210px;
   height: 95px;
   background-color: #9b9b9b;
+  overflow: hidden;
 }
 
 .layout {
@@ -1076,6 +1077,7 @@
   max-width: 540px;
   background-color: #c7c2c2;
   margin: 30px auto 0;
+  overflow: hidden;
 }
 
 .footer {
