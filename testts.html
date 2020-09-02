@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .copied {
+  width: max-content;
+  padding: 20px 50px;
+  border: 1px solid #000;
+  margin: 0 auto;
+  cursor: pointer;
+}
+</style>
+<body>
+  <div class="copied" >24knvb;ls03</div>
+  <script>
+    const copi = document.querySelector('.copied')
+    copi.addEventListener('click',  copy)
+    function copy() {
+      try {
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(this.innerText);
+          console.log(this);
+        } else if (window.clipboardData) {  // IE
+          window.clipboardData.setData('text', this.innerText);
+        } else {  // other browsers, iOS, Mac OS
+          this.copyToClipboard(this);
+        }
+        this.tooltipText = 'Copied to Clipboard.';  // copy succeed.
+      } catch (e) {
+        this.tooltipText = 'Please copy coupon manually.';  // copy failed.
+      }
+    }
+
+    function copyToClipboard(el) {
+      const oldContentEditable = el.contentEditable;
+      const oldReadOnly = el.readOnly;
+
+      try {
+        el.contentEditable = 'true';  // specific to iOS
+        el.readOnly = false;
+        this.copyNodeContentsToClipboard(el);
+      } finally {
+        el.contentEditable = oldContentEditable;
+        el.readOnly = oldReadOnly;
+      }
+    }
+
+    function copyNodeContentsToClipboard(el) {
+      const range = document.createRange();
+      const selection = window.getSelection();
+      range.selectNodeContents(el);
+      selection.removeAllRanges();
+
+      selection.addRange(range);
+      el.setSelectionRange(0, 999999);
+
+      document.execCommand('copy');
+    }
+  </script>
+</body>
+</html>
