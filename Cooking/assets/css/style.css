@@ -1075,6 +1075,13 @@ body {
     width: 200px;
     height: 200px;
   }
+  .footer__img {
+    height: auto;
+    padding: 40px 0;
+  }
+  .footer__img img {
+    width: 130px;
+  }
 }
 
 @media (max-width: 425px) {

@@ -275,6 +275,15 @@
       }
     }
   }
+  .footer {
+    &__img {
+      height: auto;
+      padding: 40px 0;
+      img {
+        width: 130px;
+      } 
+    }
+  }
 }
 
 
